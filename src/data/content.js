@@ -39,7 +39,7 @@ export const site = {
 export const about = {
   headline: 'A data problem isn’t solved until someone can actually use the answer.',
   body: [
-    'I’m a graduate Data Science student at the University at Buffalo, working as a Research Assistant on generative AI and data workflows: Python pipelines for preprocessing, validation and evaluation of AI outputs, plus LLM evaluation and prompt refinement.',
+    'I’m a graduate Data Science student at the University at Buffalo, working as a Research Assistant in generative handwriting and document recognition: running experiments, building Python workflows for preprocessing and validation, and evaluating model and LLM outputs.',
     'Before UB, I was a Software Engineering Intern at Tirumala Tirupati Devasthanams and a Python Intern at Slash Mark, and completed my B.Tech in Computer Science at Amrita Vishwa Vidyapeetham.',
   ],
   stats: [
@@ -77,10 +77,11 @@ export const experience = [
     org: 'University at Buffalo',
     role: 'Research Assistant, Generative AI & Data Workflows',
     points: [
+      'Support research in generative handwriting and document recognition: running experiments, debugging Python workflows, and analyzing model outputs and performance changes.',
       'Develop Python workflows for data preprocessing, validation, automation, and evaluation of structured and unstructured AI outputs.',
       'Evaluate LLM responses, identify failure cases, refine prompts, and document reproducible experiments with research teams.',
     ],
-    tags: ['Python', 'LLM Evaluation', 'Prompt Engineering', 'Data Validation'],
+    tags: ['Python', 'Handwriting & Document Recognition', 'LLM Evaluation', 'Data Validation'],
     type: 'work',
   },
   {
@@ -184,6 +185,7 @@ export const projects = [
     desc: 'Natural-language interface over a PostgreSQL database hosted on Render, powered by the OpenAI API, with bcrypt authentication and data utilities. Served through a Streamlit front end.',
     tags: ['PostgreSQL', 'OpenAI API', 'Streamlit', 'bcrypt'],
     link: 'https://github.com/churnika67/customers',
+    images: ['projects/sql-1.webp', 'projects/sql-2.webp'],
   },
   {
     name: 'Cognitive Stress Identification',
