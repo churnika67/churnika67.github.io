@@ -33,7 +33,7 @@ export const site = {
   formEmail: 'churnika13@gmail.com',
   // Visitor analytics (GoatCounter, free). Sign up at https://www.goatcounter.com,
   // pick a code (e.g. "churnika"), and put it here. Leave '' to turn analytics off.
-  goatcounter: '',
+  goatcounter: 'chu',
 }
 
 export const about = {
