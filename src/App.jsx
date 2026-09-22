@@ -12,6 +12,7 @@ import Projects from './components/Projects'
 import Socials from './components/Socials'
 import Contact from './components/Contact'
 import useReveal from './hooks/useReveal'
+import { initAnalytics, track } from './lib/analytics'
 
 export default function App() {
   const [ready, setReady] = useState(false)
@@ -20,6 +21,11 @@ export default function App() {
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
     window.scrollTo(0, 0)
     initSmoothScroll()
+    initAnalytics()
+    // count resume downloads anywhere on the page
+    const onClick = (e) => { if (e.target.closest?.('a[download]')) track('resume-download') }
+    document.addEventListener('click', onClick)
+    return () => document.removeEventListener('click', onClick)
   }, [])
 
   useEffect(() => {
