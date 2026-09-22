@@ -71,7 +71,7 @@ function Key({ item, position, index, active, onHover, hovered }) {
 
 export default function Keyboard3D({ skills, active, hovered, onHover, compact }) {
   const items = useMemo(() => skills.flatMap((g) => g.items.map((s) => ({ s, g: g.group, c: g.color }))), [skills])
-  const perRow = compact ? 5 : 8
+  const perRow = compact ? 6 : 9
   const rows = Math.ceil(items.length / perRow)
   const gap = 1.14
   const w = perRow * gap + 0.5
