@@ -1,16 +1,45 @@
 import { useState } from 'react'
-import { profile } from '../data/content'
+import { profile, site } from '../data/content'
 import { Arrow, Send } from './Icons'
+import { track } from '../lib/analytics'
 
 export default function Contact() {
-  const [f, setF] = useState({ name: '', email: '', subject: '', message: '' })
+  const [f, setF] = useState({ name: '', email: '', subject: '', message: '', _honey: '' })
+  const [status, setStatus] = useState('idle') // idle | sending | ok | err
   const set = (k) => (e) => setF({ ...f, [k]: e.target.value })
 
-  // GitHub Pages has no server, so the form opens the visitor's email app pre-filled.
-  const submit = (e) => {
-    e.preventDefault()
+  const mailtoHref = () => {
     const body = `${f.message}\n\n— ${f.name}${f.email ? ` (${f.email})` : ''}`
-    window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(f.subject || `Hello from ${f.name || 'your portfolio'}`)}&body=${encodeURIComponent(body)}`
+    return `mailto:${profile.email}?subject=${encodeURIComponent(f.subject || `Hello from ${f.name || 'your portfolio'}`)}&body=${encodeURIComponent(body)}`
+  }
+
+  // Sends straight to the inbox via FormSubmit (GitHub Pages has no server of its own).
+  const submit = async (e) => {
+    e.preventDefault()
+    if (f._honey) return // bot trap
+    setStatus('sending')
+    try {
+      const res = await fetch(`https://formsubmit.co/ajax/${site.formEmail}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: f.name,
+          email: f.email,
+          _replyto: f.email,
+          _subject: f.subject ? `Portfolio: ${f.subject}` : `Portfolio message from ${f.name}`,
+          message: f.message,
+          _template: 'table',
+          _captcha: 'false',
+        }),
+      })
+      const data = await res.json().catch(() => ({}))
+      if (!res.ok || String(data.success) === 'false') throw new Error(data.message || 'send failed')
+      setStatus('ok')
+      track('contact-form-sent')
+      setF({ name: '', email: '', subject: '', message: '', _honey: '' })
+    } catch {
+      setStatus('err')
+    }
   }
 
   const links = [
@@ -35,8 +64,17 @@ export default function Contact() {
             </div>
             <label>Subject<input value={f.subject} onChange={set('subject')} /></label>
             <label>Message<textarea required value={f.message} onChange={set('message')} /></label>
-            <button className="btn primary" type="submit">Send message <Send /></button>
-            <p className="note">Opens your email app with the message ready to send.</p>
+            <input className="hp" tabIndex={-1} autoComplete="off" value={f._honey} onChange={set('_honey')} aria-hidden="true" />
+            <button className="btn primary" type="submit" disabled={status === 'sending'}>
+              {status === 'sending' ? 'Sending…' : <>Send message <Send /></>}
+            </button>
+            {status === 'ok' && <p className="form-status ok" role="status">Thanks! Your message is on its way. I’ll get back to you soon.</p>}
+            {status === 'err' && (
+              <p className="form-status err" role="alert">
+                Couldn’t send right now. <a href={mailtoHref()} style={{ textDecoration: 'underline' }}>Email me directly instead</a>.
+              </p>
+            )}
+            {status === 'idle' && <p className="note">Goes straight to my inbox.</p>}
           </form>
           <div className="contact-links">
             {links.map(([k, v, href]) => (

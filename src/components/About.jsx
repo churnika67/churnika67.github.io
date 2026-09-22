@@ -102,6 +102,16 @@ export default function About() {
             </ul>
           </div>
 
+          <div className="card c-lens rv">
+            <span className="label">Product lens</span>
+            <h3 style={{ marginTop: 10 }}>I build for the decision someone has to make, not just the metric.</h3>
+            <div className="lens-grid">
+              {about.productLens.map((l, k) => (
+                <div key={l.title}><i>0{k + 1}</i><b>{l.title}</b><p>{l.text}</p></div>
+              ))}
+            </div>
+          </div>
+
           <div className="card c-stats rv">
             {about.stats.map((s) => <Stat key={s.label} {...s} />)}
           </div>

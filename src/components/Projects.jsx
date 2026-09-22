@@ -3,6 +3,7 @@ import { projects } from '../data/content'
 import { lockScroll } from '../lib/scroll'
 import ProjVisual from './ProjVisual'
 import { Arrow } from './Icons'
+import { track } from '../lib/analytics'
 
 function tilt(e) {
   if (matchMedia('(hover: none)').matches) return
@@ -14,6 +15,26 @@ function tilt(e) {
 }
 const untilt = (e) => { e.currentTarget.style.transform = '' }
 
+function Gallery({ p }) {
+  const [idx, setIdx] = useState(0)
+  return (
+    <div className="gallery">
+      <div className="gallery-main">
+        <img src={p.images[idx]} alt={`${p.name} screenshot ${idx + 1} of ${p.images.length}`} />
+      </div>
+      {p.images.length > 1 && (
+        <div className="gallery-thumbs">
+          {p.images.map((src, k) => (
+            <button key={src} className={k === idx ? 'on' : ''} onClick={() => setIdx(k)} aria-label={`Show screenshot ${k + 1}`}>
+              <img src={src} alt="" loading="lazy" />
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
 function Modal({ p, i, onClose }) {
   useEffect(() => {
     lockScroll(true)
@@ -24,14 +45,15 @@ function Modal({ p, i, onClose }) {
   return (
     <div className="modal-bg" onClick={onClose} role="dialog" aria-modal="true" aria-label={p.name}>
       <div className="modal" style={{ '--pa': p.accent }} onClick={(e) => e.stopPropagation()} data-lenis-prevent>
-        <div className="modal-hero">
-          <ProjVisual accent={p.accent} seed={i} />
+        <div className="modal-hero" style={p.images ? { height: 'auto' } : undefined}>
+          {p.images ? <Gallery p={p} /> : <ProjVisual accent={p.accent} seed={i} />}
           <button className="modal-close" onClick={onClose} aria-label="Close">×</button>
-          {p.metric && <div className="pv-metric" style={{ position: 'absolute', left: 28, bottom: 20 }}><b>{p.metric.value}</b><span>{p.metric.label}</span></div>}
+          {p.metric && !p.images && <div className="pv-metric" style={{ position: 'absolute', left: 28, bottom: 20 }}><b>{p.metric.value}</b><span>{p.metric.label}</span></div>}
         </div>
         <div className="modal-body">
           <span className="eyebrow" style={{ color: p.accent }}>{p.category}</span>
           <h3>{p.name}</h3>
+          {p.metric && p.images && <p className="modal-metric"><b>{p.metric.value}</b> {p.metric.label}</p>}
           <p>{p.desc}</p>
           {p.caseStudy && (
             <div className="cs">
@@ -64,11 +86,13 @@ export default function Projects() {
           {projects.map((p, i) => (
             <button
               className="card proj rv" key={p.name} style={{ '--pa': p.accent }}
-              onMouseMove={tilt} onMouseLeave={untilt} onClick={() => setOpen(i)}
+              onMouseMove={tilt} onMouseLeave={untilt} onClick={() => { setOpen(i); track(`project-${p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`) }}
               aria-label={`Open details for ${p.name}`}
             >
               <div className="proj-visual">
-                <ProjVisual accent={p.accent} seed={i} />
+                {p.images
+                  ? <img className="proj-shot" src={p.images[0]} alt={`${p.name} screenshot`} loading="lazy" />
+                  : <ProjVisual accent={p.accent} seed={i} />}
                 <span className="proj-cat">{p.category}</span>
                 <span className="proj-num">{String(i + 1).padStart(2, '0')}</span>
                 {p.metric && <div className="pv-metric"><b>{p.metric.value}</b><span>{p.metric.label}</span></div>}
