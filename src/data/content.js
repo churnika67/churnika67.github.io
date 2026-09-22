@@ -25,17 +25,34 @@ export const profile = {
   },
 }
 
+// Site-wide settings
+export const site = {
+  url: 'https://churnika67.github.io',
+  // Contact form delivery (FormSubmit.co, no account needed).
+  // The FIRST message sends an activation email to this address: click "Activate Form" in it once.
+  formEmail: 'churnika13@gmail.com',
+  // Visitor analytics (GoatCounter, free). Sign up at https://www.goatcounter.com,
+  // pick a code (e.g. "churnika"), and put it here. Leave '' to turn analytics off.
+  goatcounter: '',
+}
+
 export const about = {
   headline: 'A data problem isn’t solved until someone can actually use the answer.',
   body: [
-    'I’m a graduate Data Science student at the University at Buffalo, working as a Research Assistant building Python tooling for generative AI research, workflow automation, and LLM output evaluation.',
+    'I’m a graduate Data Science student at the University at Buffalo, working as a Research Assistant on generative AI and data workflows: Python pipelines for preprocessing, validation and evaluation of AI outputs, plus LLM evaluation and prompt refinement.',
     'Before UB, I was a Software Engineering Intern at Tirumala Tirupati Devasthanams and a Python Intern at Slash Mark, and completed my B.Tech in Computer Science at Amrita Vishwa Vidyapeetham.',
   ],
   stats: [
     { value: 7, suffix: '', label: 'Projects shipped' },
     { value: 3, suffix: '', label: 'Internships & research roles' },
-    { value: 20, suffix: '+', label: 'Tools & frameworks' },
+    { value: 40, suffix: '+', label: 'Tools & frameworks' },
     { value: 'MS', suffix: '', label: 'Data Science · Dec 2026' },
+  ],
+  // Product lens: how real projects were framed around the user or business outcome
+  productLens: [
+    { title: 'Start from the decision', text: 'Citi Bike: framed demand as a shortage-or-overflow call for operations, and measured success as operational penalty, not just accuracy.' },
+    { title: 'Weigh the cost of each mistake', text: 'Telco churn: picked the model by the business cost of missed vs. false churn flags, across 16 tracked experiments.' },
+    { title: 'Ship the whole flow', text: 'Evently: scoped and built 10+ end-to-end user flows, from discovery and search to RSVP, hosting and profiles.' },
   ],
   // Words that light up on scroll in the statement section
   statement:
@@ -47,10 +64,10 @@ export const skills = [
   { group: 'Languages', color: '#a78bfa', items: ['Python', 'SQL', 'JavaScript', 'TypeScript', 'Java', 'C++', 'HTML/CSS'] },
   { group: 'Frontend', color: '#f472b6', items: ['React', 'React Native', 'Next.js', 'Vite', 'Expo', 'Tailwind'] },
   { group: 'Backend & APIs', color: '#fb923c', items: ['FastAPI', 'REST APIs', 'SQLAlchemy'] },
-  { group: 'Data Engineering', color: '#22d3ee', items: ['Airflow', 'Spark', 'Iceberg', 'ETL/ELT', 'Databricks'] },
+  { group: 'Data Engineering', color: '#22d3ee', items: ['Airflow', 'Spark', 'Iceberg', 'ETL/ELT', 'Databricks', 'Data Validation', 'Feature Eng.'] },
   { group: 'Databases', color: '#34d399', items: ['PostgreSQL', 'SQLite', 'Supabase'] },
-  { group: 'AI / ML', color: '#facc15', items: ['PyTorch', 'TensorFlow', 'Scikit-learn', 'XGBoost', 'LightGBM', 'MLflow', 'GenAI'] },
-  { group: 'Cloud & DevOps', color: '#60a5fa', items: ['AWS', 'Docker', 'Git', 'GitHub Actions'] },
+  { group: 'AI / ML', color: '#facc15', items: ['PyTorch', 'TensorFlow', 'Scikit-learn', 'XGBoost', 'LightGBM', 'MLflow', 'Optuna', 'LLMs', 'GenAI', 'Computer Vision'] },
+  { group: 'Cloud & DevOps', color: '#60a5fa', items: ['AWS S3', 'Docker', 'Git', 'GitHub Actions', 'Linux'] },
   { group: 'Data & Viz', color: '#e879f9', items: ['Pandas', 'NumPy', 'Streamlit', 'Matplotlib'] },
 ]
 
@@ -58,13 +75,12 @@ export const experience = [
   {
     period: 'Aug 2025 – Present',
     org: 'University at Buffalo',
-    role: 'Research Assistant, Generative AI & Workflow Support',
+    role: 'Research Assistant, Generative AI & Data Workflows',
     points: [
-      'Develop Python utilities supporting AI research, data processing, validation, and workflow automation.',
-      'Evaluate AI/LLM outputs, identify failure cases, and improve experimental workflows.',
-      'Prepare technical documentation and collaborate with researchers on AI-driven solutions.',
+      'Develop Python workflows for data preprocessing, validation, automation, and evaluation of structured and unstructured AI outputs.',
+      'Evaluate LLM responses, identify failure cases, refine prompts, and document reproducible experiments with research teams.',
     ],
-    tags: ['Python', 'LLM Evaluation', 'Automation'],
+    tags: ['Python', 'LLM Evaluation', 'Prompt Engineering', 'Data Validation'],
     type: 'work',
   },
   {
@@ -108,7 +124,8 @@ export const experience = [
   },
 ]
 
-// Projects. `accent` colors the card. `metric` and `caseStudy` are optional.
+// Projects. `accent` colors the card. `metric`, `caseStudy` and `images` are optional.
+// `images`: screenshots in /public/projects. The first one is the card cover.
 export const projects = [
   {
     name: 'Citi Bike Demand Prediction Pipeline',
@@ -127,6 +144,7 @@ export const projects = [
     },
     tags: ['Airflow', 'Spark', 'Iceberg', 'LightGBM', 'Optuna', 'FastAPI', 'Docker'],
     link: 'https://github.com/churnika67/citibike-demand-prediction-pipeline-DataEngineer',
+    images: ['projects/citibike-1.webp', 'projects/citibike-2.webp', 'projects/citibike-3.webp', 'projects/citibike-4.webp'],
   },
   {
     name: 'Evently',
@@ -137,6 +155,7 @@ export const projects = [
     desc: 'Discovery, search and category filtering, recommendations, saved events, RSVP/ticketing, event creation, sharing, communities and profile interests. Supabase client wired in for backend integration.',
     tags: ['React Native', 'Expo', 'TypeScript', 'Supabase'],
     link: 'https://github.com/churnika67/Evently',
+    images: ['projects/evently-1.webp', 'projects/evently-2.webp', 'projects/evently-3.webp'],
   },
   {
     name: 'Telco Customer Churn Prediction',
@@ -155,6 +174,7 @@ export const projects = [
     },
     tags: ['Scikit-learn', 'XGBoost', 'MLflow', 'Optuna', 'Streamlit'],
     link: 'https://github.com/churnika67/Telco-customer-churn',
+    images: ['projects/telco-1.webp', 'projects/telco-2.webp'],
   },
   {
     name: 'AI-Powered SQL Query Assistant',
@@ -183,6 +203,7 @@ export const projects = [
     desc: 'Built on live Open-Meteo geocoding and forecast APIs: city, ZIP, landmark, coordinate and geolocation search, 5-day forecasts, full CRUD with SQLite, validation, and JSON/CSV export.',
     tags: ['React', 'Vite', 'FastAPI', 'SQLAlchemy'],
     link: 'https://github.com/churnika67/weather-app',
+    images: ['projects/weather-1.webp', 'projects/weather-2.webp'],
   },
   {
     name: 'DeepSpace Smart Workout Buddy',
@@ -192,5 +213,6 @@ export const projects = [
     desc: 'A connected fitness workflow prototype: profile goals feed a dynamic workout plan, which drives an active workout timer, session logging and a progress dashboard.',
     tags: ['JavaScript', 'React', 'JSX'],
     link: 'https://github.com/churnika67/deepspace-smart-workout-buddy',
+    images: ['projects/deepspace-1.webp', 'projects/deepspace-2.webp', 'projects/deepspace-3.webp'],
   },
 ]
