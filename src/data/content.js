@@ -40,7 +40,7 @@ export const about = {
   headline: 'A data problem isn’t solved until someone can actually use the answer.',
   body: [
     'I’m a graduate Data Science student at the University at Buffalo, working as a Research Assistant in generative handwriting and document recognition: running experiments, building Python workflows for preprocessing and validation, and evaluating model and LLM outputs.',
-    'Before UB, I was a Software Engineering Intern at Tirumala Tirupati Devasthanams and a Python Intern at Slash Mark, and completed my B.Tech in Computer Science at Amrita Vishwa Vidyapeetham.',
+    'Before UB, I was a Web Development Intern at Tirumala Tirupati Devasthanams and a Python Intern at Slash Mark, and completed my B.Tech in Computer Science at Amrita Vishwa Vidyapeetham.',
   ],
   stats: [
     { value: 7, suffix: '', label: 'Projects shipped' },
@@ -95,11 +95,11 @@ export const experience = [
   {
     period: 'Jun 2024 – Aug 2024',
     org: 'Tirumala Tirupati Devasthanams (TTD)',
-    role: 'Software Engineering Intern',
+    role: 'Web Development Intern',
     points: [
-      'Supported development and testing of enterprise web applications.',
-      'Debugged frontend, backend, and API-related issues and validated application workflows.',
-      'Collaborated with development teams on application reliability and technical documentation.',
+      'Debugged frontend, backend and API issues across enterprise web applications, tracing root causes with development teams and verifying fixes.',
+      'Tested UI, API and data-flow behavior and ran regression checks before releases.',
+      'Documented defects, reproduction steps and reliability improvements for the engineering team.',
     ],
     tags: ['Web Apps', 'APIs', 'Testing'],
     type: 'work',
