@@ -19,7 +19,7 @@ function useTerminalTexture() {
     const script = [
       ['$ ', 'whoami'],
       ['', `${profile.name.toLowerCase()}`],
-      ['', 'data engineer · full-stack · ai/ml'],
+      ['', 'data engineer · ml · software engineer'],
       ['$ ', 'airflow dags trigger citibike_demand'],
       ['✔ ', 'extract → validate → features → train → serve'],
       ['$ ', 'python evaluate.py --vs baseline'],
