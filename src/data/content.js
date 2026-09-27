@@ -8,7 +8,7 @@ export const profile = {
   name: 'Churnika Marappa Reddy',
   firstName: 'Churnika',
   shortName: 'CMR',
-  roles: ['Data Engineer', 'Full-Stack Developer', 'AI/ML Engineer'],
+  roles: ['Data Engineer', 'ML Engineer', 'Software Engineer'],
   tagline:
     'I build scalable data pipelines, production-ready full-stack apps, and AI/ML systems, turning raw data into things people can query, predict with, and ship.',
   location: 'Buffalo, NY',
@@ -39,7 +39,7 @@ export const site = {
 export const about = {
   headline: 'A data problem isn’t solved until someone can actually use the answer.',
   body: [
-    'I’m a graduate Data Science student at the University at Buffalo, working as a Research Assistant in generative handwriting and document recognition: running experiments, building Python workflows for preprocessing and validation, and evaluating model and LLM outputs.',
+    'I’m a graduate Data Science student at the University at Buffalo, working as a Research Assistant in generative handwriting and document recognition: adapting diffusion models, building IAM/GNHK training pipelines, and shipping a Streamlit app for style-conditioned handwriting generation.',
     'Before UB, I was a Web Development Intern at Tirumala Tirupati Devasthanams and a Python Intern at Slash Mark, and completed my B.Tech in Computer Science at Amrita Vishwa Vidyapeetham.',
   ],
   stats: [
@@ -75,13 +75,14 @@ export const experience = [
   {
     period: 'Aug 2025 – Present',
     org: 'University at Buffalo',
-    role: 'Research Assistant, Generative AI & Data Workflows',
+    role: 'Research Assistant, Generative Handwriting & Document Recognition',
     points: [
-      'Support research in generative handwriting and document recognition: running experiments, debugging Python workflows, and analyzing model outputs and performance changes.',
-      'Develop Python workflows for data preprocessing, validation, automation, and evaluation of structured and unstructured AI outputs.',
-      'Evaluate LLM responses, identify failure cases, refine prompts, and document reproducible experiments with research teams.',
+      'Adapted DiffusionPen, a few-shot handwriting style-transfer system (latent U-Net, DDIM sampling, Stable Diffusion VAE, CANINE text and MobileNetV2 style embeddings).',
+      'Engineered IAM and GNHK data and training pipelines with writer-identity mappings, cached tensors, dataset loaders, EMA checkpoints and style-encoder training.',
+      'Built an end-to-end Streamlit handwriting-generation app with uploaded style images, CPU/GPU checkpoint loading, multi-candidate generation and style-based reranking.',
+      'Evaluated Emuru (VAE + autoregressive Transformer) against the diffusion baseline and analyzed style fidelity on unseen writers.',
     ],
-    tags: ['Python', 'Handwriting & Document Recognition', 'LLM Evaluation', 'Data Validation'],
+    tags: ['PyTorch', 'Diffusion Models', 'Data Pipelines', 'Streamlit'],
     type: 'work',
   },
   {
