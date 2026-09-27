@@ -96,7 +96,7 @@ export default function About() {
           <div className="card c-now rv">
             <span className="label">Right now</span>
             <ul>
-              <li><span><b>{profile.status}</b>: Data Engineering, Full-Stack and AI/ML roles</span></li>
+              <li><span><b>{profile.status}</b>: Data Engineering, ML Engineering and Software Engineering roles</span></li>
               {current && <li><span><b>{current.role.split(',')[0]}</b> at {current.org}</span></li>}
               <li><span><b>MS Data Science</b>, graduating Dec 2026</span></li>
             </ul>

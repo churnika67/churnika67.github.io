@@ -54,7 +54,7 @@ export default function Contact() {
       <div className="wrap">
         <span className="eyebrow rv">Contact me</span>
         <h2 className="contact-big rv">Let’s talk<span className="grad-text">.</span></h2>
-        <p className="section-sub rv">Hiring for data engineering, full-stack or AI/ML? Or just want to talk pipelines? My inbox is open.</p>
+        <p className="section-sub rv">Hiring for data engineering, ML or software engineering? Or just want to talk pipelines? My inbox is open.</p>
 
         <div className="contact-grid">
           <form className="card form rv" onSubmit={submit}>
@@ -91,7 +91,7 @@ export default function Contact() {
         <div className="footer-marquee" aria-hidden="true">
           {[0, 1].map((k) => (
             <div key={k}>
-              {['Data Engineer', '✦', 'Full-Stack', '✦', 'AI / ML', '✦'].map((t, i) => <span key={i}>{t}</span>)}
+              {['Data Engineer', '✦', 'ML Engineer', '✦', 'Software Engineer', '✦'].map((t, i) => <span key={i}>{t}</span>)}
             </div>
           ))}
         </div>
