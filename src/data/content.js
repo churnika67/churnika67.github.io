@@ -39,8 +39,8 @@ export const site = {
 export const about = {
   headline: 'A data problem isn’t solved until someone can actually use the answer.',
   body: [
-    'I’m a graduate Data Science student at the University at Buffalo, working as a Research Assistant in generative handwriting and document recognition: adapting diffusion models, building IAM/GNHK training pipelines, and shipping a Streamlit app for style-conditioned handwriting generation.',
-    'Before UB, I was a Web Development Intern at Tirumala Tirupati Devasthanams and a Python Intern at Slash Mark, and completed my B.Tech in Computer Science at Amrita Vishwa Vidyapeetham.',
+    'I’m a graduate Data Science student at the University at Buffalo. As a Research Assistant in generative handwriting and document recognition, I adapted diffusion models, built IAM/GNHK training pipelines, and shipped a Streamlit app for style-conditioned handwriting generation.',
+    'Before UB, I was a Web Development Intern at Tirumala Tirupati Devasthanam and a Python Intern at Slash Mark, and completed my B.Tech in Computer Science at Amrita Vishwa Vidyapeetham.',
   ],
   stats: [
     { value: 8, suffix: '', label: 'Projects shipped' },
@@ -73,14 +73,16 @@ export const skills = [
 
 export const experience = [
   {
-    period: 'Aug 2025 – Present',
-    org: 'University at Buffalo',
-    role: 'Research Assistant, Generative Handwriting & Document Recognition',
+    period: 'Mar 2026 – May 2026',
+    org: 'University at Buffalo · Part-time',
+    role: 'Research Assistant',
+    subtitle: 'Generative Handwriting & Document Recognition',
+    location: 'United States',
     points: [
-      'Adapted DiffusionPen, a few-shot handwriting style-transfer system (latent U-Net, DDIM sampling, Stable Diffusion VAE, CANINE text and MobileNetV2 style embeddings).',
-      'Engineered IAM and GNHK data and training pipelines with writer-identity mappings, cached tensors, dataset loaders, EMA checkpoints and style-encoder training.',
-      'Built an end-to-end Streamlit handwriting-generation app with uploaded style images, CPU/GPU checkpoint loading, multi-candidate generation and style-based reranking.',
-      'Evaluated Emuru (VAE + autoregressive Transformer) against the diffusion baseline and analyzed style fidelity on unseen writers.',
+      'Adapted DiffusionPen, a few-shot handwriting style-transfer system using latent U-Net, DDIM sampling, Stable Diffusion VAE, CANINE text embeddings, and MobileNetV2 style embeddings.',
+      'Engineered IAM and GNHK data and training pipelines with writer-identity mappings, cached tensors, dataset loaders, EMA checkpoints, and style-encoder training.',
+      'Built an end-to-end Streamlit handwriting-generation application supporting uploaded style images, CPU/GPU checkpoint loading, multi-candidate generation, and style-based reranking.',
+      'Evaluated Emuru, a VAE and autoregressive Transformer model for zero-shot styled-text generation, against the diffusion baseline and analyzed style fidelity on unseen writers.',
     ],
     tags: ['PyTorch', 'Diffusion Models', 'Data Pipelines', 'Streamlit'],
     type: 'work',
@@ -95,8 +97,9 @@ export const experience = [
   },
   {
     period: 'Jun 2024 – Aug 2024',
-    org: 'Tirumala Tirupati Devasthanams (TTD)',
+    org: 'Tirumala Tirupati Devasthanam · Internship',
     role: 'Web Development Intern',
+    location: 'Tirupati, Andhra Pradesh, India',
     points: [
       'Debugged frontend, backend and API issues across enterprise web applications, tracing root causes with development teams and verifying fixes.',
       'Tested UI, API and data-flow behavior and ran regression checks before releases.',
@@ -107,11 +110,11 @@ export const experience = [
   },
   {
     period: 'Oct 2023 – Feb 2024',
-    org: 'Slash Mark',
+    org: 'Slash Mark · Internship',
     role: 'Python Intern',
+    location: 'Remote',
     points: [
-      'Developed Python applications for automation, data processing, and algorithmic problem-solving.',
-      'Debugged application logic, validated program outputs, and maintained reusable code.',
+      'Developed reusable Python programs for automation, data processing, analysis and algorithmic problem-solving using Git workflows.',
     ],
     tags: ['Python', 'Automation'],
     type: 'work',
