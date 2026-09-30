@@ -30,10 +30,12 @@ export default function Experience() {
               <div className="tl-meta rv">
                 <div className="tl-period">{e.period}</div>
                 <div className="tl-kind">{e.type === 'edu' ? 'Education' : 'Work'}</div>
+                {e.location && <div className="tl-kind" style={{ textTransform: 'none', letterSpacing: '.04em' }}>{e.location}</div>}
               </div>
               <div className="card tl-card rv">
                 <div className="org">{e.org}</div>
                 <h3>{e.role}</h3>
+                {e.subtitle && <p className="tl-sub" style={{ marginTop: 4, fontWeight: 600, color: 'var(--ink)' }}>{e.subtitle}</p>}
                 {e.points.length > 0 && <ul>{e.points.map((p) => <li key={p}>{p}</li>)}</ul>}
                 {e.tags.length > 0 && <div className="tl-tags">{e.tags.map((t) => <span key={t}>{t}</span>)}</div>}
               </div>
