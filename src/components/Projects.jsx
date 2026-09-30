@@ -63,7 +63,10 @@ function Modal({ p, i, onClose }) {
             </div>
           )}
           <div className="proj-tags" style={{ margin: '18px 0 24px' }}>{p.tags.map((t) => <span key={t}>{t}</span>)}</div>
-          <a className="btn primary" href={p.link} target="_blank" rel="noreferrer">View source on GitHub <Arrow /></a>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+            {p.live && <a className="btn primary" href={p.live} target="_blank" rel="noreferrer">Live demo <Arrow /></a>}
+            <a className={p.live ? 'btn' : 'btn primary'} href={p.link} target="_blank" rel="noreferrer">View source on GitHub <Arrow /></a>
+          </div>
         </div>
       </div>
     </div>
@@ -80,7 +83,7 @@ export default function Projects() {
             <span className="eyebrow rv">My projects</span>
             <h2 className="section-title rv">Clean. Useful.<br />Shipped<span className="grad-text">.</span></h2>
           </div>
-          <p className="section-sub rv">Seven builds across data engineering, full-stack apps and applied ML. Click any card for the full story.</p>
+          <p className="section-sub rv">Eight builds across data engineering, full-stack apps, applied ML and AI systems. Click any card for the full story.</p>
         </div>
         <div className="proj-grid">
           {projects.map((p, i) => (
