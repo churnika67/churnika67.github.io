@@ -43,7 +43,7 @@ export const about = {
     'Before UB, I was a Web Development Intern at Tirumala Tirupati Devasthanams and a Python Intern at Slash Mark, and completed my B.Tech in Computer Science at Amrita Vishwa Vidyapeetham.',
   ],
   stats: [
-    { value: 7, suffix: '', label: 'Projects shipped' },
+    { value: 8, suffix: '', label: 'Projects shipped' },
     { value: 3, suffix: '', label: 'Internships & research roles' },
     { value: 40, suffix: '+', label: 'Tools & frameworks' },
     { value: 'MS', suffix: '', label: 'Data Science · Dec 2026' },
@@ -63,11 +63,11 @@ export const about = {
 export const skills = [
   { group: 'Languages', color: '#a78bfa', items: ['Python', 'SQL', 'JavaScript', 'TypeScript', 'Java', 'C++', 'HTML/CSS'] },
   { group: 'Frontend', color: '#f472b6', items: ['React', 'React Native', 'Next.js', 'Vite', 'Expo', 'Tailwind'] },
-  { group: 'Backend & APIs', color: '#fb923c', items: ['FastAPI', 'REST APIs', 'SQLAlchemy'] },
+  { group: 'Backend & APIs', color: '#fb923c', items: ['FastAPI', 'REST APIs', 'SQLAlchemy', 'LangGraph'] },
   { group: 'Data Engineering', color: '#22d3ee', items: ['Airflow', 'Spark', 'Iceberg', 'ETL/ELT', 'Databricks', 'Data Validation', 'Feature Eng.'] },
-  { group: 'Databases', color: '#34d399', items: ['PostgreSQL', 'SQLite', 'Supabase'] },
-  { group: 'AI / ML', color: '#facc15', items: ['PyTorch', 'TensorFlow', 'Scikit-learn', 'XGBoost', 'LightGBM', 'MLflow', 'Optuna', 'LLMs', 'GenAI', 'Computer Vision'] },
-  { group: 'Cloud & DevOps', color: '#60a5fa', items: ['AWS S3', 'Docker', 'Git', 'GitHub Actions', 'Linux'] },
+  { group: 'Databases', color: '#34d399', items: ['PostgreSQL', 'SQLite', 'Supabase', 'Qdrant'] },
+  { group: 'AI / ML', color: '#facc15', items: ['PyTorch', 'TensorFlow', 'Scikit-learn', 'XGBoost', 'LightGBM', 'MLflow', 'Optuna', 'LLMs', 'GenAI', 'RAG', 'Computer Vision'] },
+  { group: 'Cloud & DevOps', color: '#60a5fa', items: ['AWS S3', 'Docker', 'Git', 'GitHub Actions', 'Vercel', 'Linux'] },
   { group: 'Data & Viz', color: '#e879f9', items: ['Pandas', 'NumPy', 'Streamlit', 'Matplotlib'] },
 ]
 
@@ -129,6 +129,26 @@ export const experience = [
 // Projects. `accent` colors the card. `metric`, `caseStudy` and `images` are optional.
 // `images`: screenshots in /public/projects. The first one is the card cover.
 export const projects = [
+  {
+    name: 'CareFlow AI',
+    category: 'AI · Full-Stack · Healthcare',
+    accent: '#818cf8',
+    blurb: 'Evidence-grounded answers to Medicare policy and synthetic patient/claims questions, with citations and human review.',
+    metric: { value: '1,171', label: 'automated tests, 9 E2E journeys, 6 CI gates per commit' },
+    desc: 'A deployed healthcare intelligence platform. A deterministic LangGraph router sends each plain-language question to Medicare policy RAG, bounded FHIR/claims lookup tools, or both. Hybrid BM25 + dense retrieval with reciprocal rank fusion and cross-encoder reranking; every citation is validated against retrieved evidence, and flagged results go to a human review queue with a full audit trail. Uses only public CMS policy, synthetic Synthea FHIR and CMS DE-SynPUF data: zero real patient records.',
+    caseStudy: {
+      problem:
+        'Healthcare operations questions span dense policy documents and structured patient/claims records, and a general-purpose LLM can’t prove which parts of its answer are grounded in evidence.',
+      approach:
+        'Deterministic routing instead of a free-form agent, hybrid retrieval with RRF + reranking, a fixed tool registry instead of generated SQL, abstention when evidence is insufficient, and human-in-the-loop review. Next.js + FastAPI on Vercel, Render, Neon and Qdrant Cloud.',
+      result:
+        'Hit@1 0.96 / MRR@5 0.98 on the development set; on a separate held-out set, reranking lifts MRR@5 from 0.78 to 0.83 (at ~425 ms extra median latency). Live analytics dashboard surfaces the evaluation.',
+    },
+    tags: ['LangGraph', 'FastAPI', 'Next.js', 'Qdrant', 'PostgreSQL', 'RAG', 'FHIR', 'Docker', 'Playwright', 'GitHub Actions'],
+    link: 'https://github.com/churnika67/careflow-ai',
+    live: 'https://careflow-ai-beryl.vercel.app',
+    images: ['projects/careflow-1.webp', 'projects/careflow-2.webp', 'projects/careflow-3.webp', 'projects/careflow-4.webp'],
+  },
   {
     name: 'Citi Bike Demand Prediction Pipeline',
     category: 'Data Engineering · ML',
