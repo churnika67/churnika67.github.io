@@ -11,6 +11,10 @@ export default function TechStack() {
   const [ref, inView] = useInView('100px')
   const compact = typeof window !== 'undefined' && window.innerWidth < 760
   const activeGroup = skills.find((g) => g.group === (hovered?.g || active))
+  // Pull the camera back when there are more key rows than the board was tuned for (6 desktop / 9 compact)
+  const totalKeys = skills.reduce((n, g) => n + g.items.length, 0)
+  const keyRows = Math.ceil(totalKeys / (compact ? 6 : 9))
+  const zoomOut = Math.max(1, keyRows / (compact ? 9 : 6))
 
   return (
     <section className="section" id="stack">
@@ -25,7 +29,7 @@ export default function TechStack() {
               shadows
               dpr={[1, 2]}
               frameloop={inView ? 'always' : 'never'}
-              camera={{ position: [0, compact ? 12 : 8.2, compact ? 7 : 5.6], fov: compact ? 45 : 42 }}
+              camera={{ position: [0, (compact ? 12 : 8.2) * zoomOut, (compact ? 7 : 5.6) * zoomOut], fov: compact ? 45 : 42 }}
             >
               <Keyboard3D skills={skills} active={active} hovered={hovered?.s} onHover={setHovered} compact={compact} />
             </Canvas>
