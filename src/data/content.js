@@ -39,12 +39,12 @@ export const site = {
 export const about = {
   headline: 'A data problem isn’t solved until someone can actually use the answer.',
   body: [
-    'I’m a graduate Data Science student at the University at Buffalo. As a Research Assistant in generative handwriting and document recognition, I adapted diffusion models, built IAM/GNHK training pipelines, and shipped a Streamlit app for style-conditioned handwriting generation.',
+    'I’m a graduate Data Science student at the University at Buffalo and an AI Engineer Intern at Product Manager Accelerator, building backend and ML services for PMA Apply, an AI job application platform. As a Research Assistant in generative handwriting and document recognition, I adapted diffusion models, built IAM/GNHK training pipelines, and shipped a Streamlit app for style-conditioned handwriting generation.',
     'Before UB, I was a Web Development Intern at Tirumala Tirupati Devasthanam and a Python Intern at Slash Mark, and completed my B.Tech in Computer Science at Amrita Vishwa Vidyapeetham.',
   ],
   stats: [
     { value: 8, suffix: '', label: 'Projects shipped' },
-    { value: 3, suffix: '', label: 'Internships & research roles' },
+    { value: 4, suffix: '', label: 'Internships & research roles' },
     { value: 40, suffix: '+', label: 'Tools & frameworks' },
     { value: 'MS', suffix: '', label: 'Data Science · Dec 2026' },
   ],
@@ -72,6 +72,23 @@ export const skills = [
 ]
 
 export const experience = [
+  {
+    period: 'Aug 2026 – Present',
+    org: 'Product Manager Accelerator (PMA Apply) · Internship',
+    role: 'AI Engineer Intern',
+    subtitle: 'Backend & ML Integration',
+    location: 'Remote',
+    points: [
+      'Built core backend services for an AI job application platform, from pasted job link to submitted application, using Python, FastAPI, PostgreSQL and Next.js with TypeScript.',
+      'Designed an LLM-powered match-scoring microservice in FastAPI and Pydantic, with 2 swappable providers, live LLM and deterministic, so tests run without model calls.',
+      'Developed a resume-parsing pipeline (pypdf, python-docx, regex NLP) that loads PDF and DOCX profile data into PostgreSQL behind Supabase JWT auth, and debugged 3 production parsing issues.',
+      'Implemented a shared data model with section-scoped writes and optimistic concurrency control, letting 3 independent backend services safely update the same application record.',
+      'Shipped a Manifest V3 Chrome extension that auto-fills Greenhouse application forms from the approved application, keeping the final submit decision with the student.',
+      'Authored 280+ pytest unit and integration tests and led a 25+ file refactor with no regressions, agreeing shared API contracts with a multi-service team.',
+    ],
+    tags: ['Python', 'FastAPI', 'PostgreSQL', 'LLMs', 'Pytest'],
+    type: 'work',
+  },
   {
     period: 'Mar 2026 – May 2026',
     org: 'University at Buffalo · Part-time',
