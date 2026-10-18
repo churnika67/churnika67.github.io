@@ -45,7 +45,7 @@ export const about = {
   stats: [
     { value: 8, suffix: '', label: 'Projects shipped' },
     { value: 4, suffix: '', label: 'Internships & research roles' },
-    { value: 40, suffix: '+', label: 'Tools & frameworks' },
+    { value: 50, suffix: '+', label: 'Tools & frameworks' },
     { value: 'MS', suffix: '', label: 'Data Science · Dec 2026' },
   ],
   // Product lens: how real projects were framed around the user or business outcome
@@ -63,11 +63,11 @@ export const about = {
 export const skills = [
   { group: 'Languages', color: '#a78bfa', items: ['Python', 'SQL', 'JavaScript', 'TypeScript', 'Java', 'C++', 'HTML/CSS'] },
   { group: 'Frontend', color: '#f472b6', items: ['React', 'React Native', 'Next.js', 'Vite', 'Expo', 'Tailwind'] },
-  { group: 'Backend & APIs', color: '#fb923c', items: ['FastAPI', 'REST APIs', 'SQLAlchemy', 'LangGraph'] },
-  { group: 'Data Engineering', color: '#22d3ee', items: ['Airflow', 'Spark', 'Iceberg', 'ETL/ELT', 'Databricks', 'Data Validation', 'Feature Eng.'] },
+  { group: 'Backend & APIs', color: '#fb923c', items: ['FastAPI', 'REST APIs', 'SQLAlchemy', 'LangGraph', 'LangChain'] },
+  { group: 'Data Engineering', color: '#22d3ee', items: ['Airflow', 'Spark', 'Kafka', 'Iceberg', 'dbt', 'Snowflake', 'ETL/ELT', 'Databricks', 'Data Validation', 'Feature Eng.'] },
   { group: 'Databases', color: '#34d399', items: ['PostgreSQL', 'SQLite', 'Supabase', 'Qdrant'] },
   { group: 'AI / ML', color: '#facc15', items: ['PyTorch', 'TensorFlow', 'Scikit-learn', 'XGBoost', 'LightGBM', 'MLflow', 'Optuna', 'LLMs', 'GenAI', 'RAG', 'Computer Vision'] },
-  { group: 'Cloud & DevOps', color: '#60a5fa', items: ['AWS S3', 'Docker', 'Git', 'GitHub Actions', 'Vercel', 'Linux'] },
+  { group: 'Cloud & DevOps', color: '#60a5fa', items: ['AWS S3', 'Azure', 'Docker', 'Kubernetes', 'Git', 'GitHub Actions', 'Vercel', 'Linux'] },
   { group: 'Data & Viz', color: '#e879f9', items: ['Pandas', 'NumPy', 'Streamlit', 'Matplotlib'] },
 ]
 
